@@ -2,46 +2,50 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>examples.spring.build</groupId>
+  <groupId>com.chariotsolutions.osgidemo.spring-parent.build</groupId>
   <artifactId>deployment</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>examples.spring (OSGi project)</name>
   <description>Generated using Pax-Construct</description>
   <properties>
-    <spring.version>3.1.1.RELEASE</spring.version>
-    <maven.source.plugin>2.1.2</maven.source.plugin>
+    <maven.tomcat.plugin>2.0-SNAPSHOT</maven.tomcat.plugin>
+    <logback.version>0.9.28</logback.version>
+    <javax.jms.version>1.1.0</javax.jms.version>
     <maven.help.plugin>2.1.1</maven.help.plugin>
-    <maven.jar.plugin>2.4</maven.jar.plugin>
-    <maven.resources.plugin>2.5</maven.resources.plugin>
+    <junit.version>4.10.0</junit.version>
+    <javax.transaction.version>1.1.0</javax.transaction.version>
     <maven.dependency.plugin>2.4</maven.dependency.plugin>
-    <maven.felix.bundle.plugin>2.3.7</maven.felix.bundle.plugin>
+    <maven.assembly.plugin>2.3</maven.assembly.plugin>
+    <mathcs.backport.version>3.1.0</mathcs.backport.version>
+    <maven.war.plugin>2.2</maven.war.plugin>
+    <maven.pax.plugin>1.6-SNAPSHOT</maven.pax.plugin>
+    <maven.clean.plugin>2.4.1</maven.clean.plugin>
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.release.plugin>2.2.2</maven.release.plugin>
     <maven.surefire.plugin>2.12</maven.surefire.plugin>
     <maven.test.skip>false</maven.test.skip>
-    <junit.version>4.10.0</junit.version>
-    <maven.versions.plugin>1.3.1</maven.versions.plugin>
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <maven.clean.plugin>2.4.1</maven.clean.plugin>
-    <maven.assembly.plugin>2.3</maven.assembly.plugin>
-    <java.version>1.6</java.version>
-    <maven.pax.plugin>1.6-SNAPSHOT</maven.pax.plugin>
-    <maven.install.plugin>2.3.1</maven.install.plugin>
-    <logback.version>1.0.1</logback.version>
-    <slf4j.version>1.6.1</slf4j.version>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-    <maven.deploy.plugin>2.7</maven.deploy.plugin>
-    <maven.tomcat.plugin>2.0-SNAPSHOT</maven.tomcat.plugin>
-    <spring.osgi.version>1.2.1</spring.osgi.version>
-    <maven.test.failure.ignore>false</maven.test.failure.ignore>
-    <maven.version.range>[2.2.1,3.1.0)</maven.version.range>
     <org.osgi.version>1.0</org.osgi.version>
-    <javax.transaction.version>1.1.0</javax.transaction.version>
+    <spring.osgi.version>1.2.1</spring.osgi.version>
+    <maven.resources.plugin>2.5</maven.resources.plugin>
+    <maven.test.failure.ignore>false</maven.test.failure.ignore>
+    <commons.lang.version>3.1</commons.lang.version>
+    <maven.felix.bundle.plugin>2.3.7</maven.felix.bundle.plugin>
+    <maven.jar.plugin>2.4</maven.jar.plugin>
+    <maven.source.plugin>2.1.2</maven.source.plugin>
+    <maven.version.range>[2.2.1,3.1.0)</maven.version.range>
+    <slf4j.version>1.6.1</slf4j.version>
+    <java.version>1.6</java.version>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <spring.version>3.1.1.RELEASE</spring.version>
+    <aopalliance.version>1.0.0</aopalliance.version>
+    <maven.deploy.plugin>2.7</maven.deploy.plugin>
+    <maven.install.plugin>2.3.1</maven.install.plugin>
+    <log4j.version>1.2.16</log4j.version>
     <detail>true</detail>
-    <maven.war.plugin>2.2</maven.war.plugin>
     <maven.compiler.plugin>2.3.2</maven.compiler.plugin>
-    <maven.release.plugin>2.2.2</maven.release.plugin>
-    <javax.jms.version>1.1.0</javax.jms.version>
+    <maven.versions.plugin>1.3.1</maven.versions.plugin>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -73,13 +77,33 @@
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
+        <artifactId>com.springsource.slf4j.log4j</artifactId>
+        <version>1.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
         <artifactId>com.springsource.slf4j.api</artifactId>
         <version>1.6.1</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>com.springsource.slf4j.log4j</artifactId>
+        <artifactId>com.springsource.slf4j.bridge</artifactId>
         <version>1.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
+        <version>0.9.28</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>com.springsource.ch.qos.logback.core</artifactId>
+        <version>0.9.28</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.log4j</groupId>
+        <artifactId>com.springsource.org.apache.log4j</artifactId>
+        <version>1.2.16</version>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -197,11 +221,6 @@
         <version>3.1.0</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.log4j</groupId>
-        <artifactId>com.springsource.org.apache.log4j</artifactId>
-        <version>1.2.16</version>
-      </dependency>
-      <dependency>
         <groupId>javax.jms</groupId>
         <artifactId>com.springsource.javax.jms</artifactId>
         <version>1.1.0</version>
@@ -212,9 +231,9 @@
         <version>1.1.0</version>
       </dependency>
       <dependency>
-        <groupId>examples.spring.build</groupId>
+        <groupId>com.chariotsolutions.osgidemo</groupId>
         <artifactId>provision</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>provided</scope>
         <optional>true</optional>
@@ -232,6 +251,11 @@
         <version>1.0</version>
         <scope>provided</scope>
         <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -365,15 +389,39 @@
     <dependency>
       <groupId>examples.spring</groupId>
       <artifactId>org.example.service</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>examples.spring</groupId>
+      <groupId>com.chariotsolutions.osgidemo</groupId>
       <artifactId>org.example.bean</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0.0-SNAPSHOT</version>
       <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>com.springsource.slf4j.bridge</artifactId>
+      <version>1.6.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
+      <version>0.9.28</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>com.springsource.ch.qos.logback.core</artifactId>
+      <version>0.9.28</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

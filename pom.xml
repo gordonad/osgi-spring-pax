@@ -23,12 +23,14 @@
 
     <properties>
         <aopalliance.version>1.0.0</aopalliance.version>
+        <commons.lang.version>3.1</commons.lang.version>
         <detail>true</detail>
         <java.version>1.6</java.version>
         <javax.transaction.version>1.1.0</javax.transaction.version>
         <javax.jms.version>1.1.0</javax.jms.version>
         <junit.version>4.10.0</junit.version>
-        <logback.version>1.0.1</logback.version>
+        <logback.version>0.9.28</logback.version>
+        <!--<logback.version>1.0.1</logback.version>-->
         <log4j.version>1.2.16</log4j.version>
         <mathcs.backport.version>3.1.0</mathcs.backport.version>
         <maven.assembly.plugin>2.3</maven.assembly.plugin>
@@ -92,9 +94,15 @@
                 <artifactId>spring-osgi-io</artifactId>
                 <version>${spring.osgi.version}</version>
             </dependency>
+            <!-- Logging -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>com.springsource.slf4j.org.apache.commons.logging</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>com.springsource.slf4j.log4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
@@ -104,9 +112,29 @@
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>com.springsource.slf4j.log4j</artifactId>
+                <artifactId>com.springsource.slf4j.bridge</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+
+
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>com.springsource.ch.qos.logback.core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.log4j</groupId>
+                <artifactId>com.springsource.org.apache.log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
             <!-- SPRING, SPRING, SPRINGITY SPRING -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -224,11 +252,6 @@
                 <version>${mathcs.backport.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.log4j</groupId>
-                <artifactId>com.springsource.org.apache.log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>javax.jms</groupId>
                 <artifactId>com.springsource.javax.jms</artifactId>
                 <version>${javax.jms.version}</version>
@@ -259,6 +282,11 @@
                 <version>${org.osgi.version}</version>
                 <scope>provided</scope>
                 <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
