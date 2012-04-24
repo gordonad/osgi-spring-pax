@@ -2,7 +2,6 @@ package org.example.bean;
 
 import org.springframework.core.env.StandardEnvironment;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;

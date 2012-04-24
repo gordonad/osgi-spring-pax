@@ -10,8 +10,7 @@ import java.util.Properties;
 /**
  * Extension of the default OSGi bundle activator
  */
-public final class ExampleActivator
-        implements BundleActivator {
+public final class ExampleActivator implements BundleActivator {
     /**
      * Called whenever the OSGi framework starts our bundle
      */

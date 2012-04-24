@@ -8,9 +8,9 @@
     <artifactId>spring-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>examples.spring (OSGi project)</name>
-
     <packaging>pom</packaging>
+
+    <name>examples.spring (OSGi project)</name>
 
     <description>Generated using Pax-Construct</description>
 
@@ -55,7 +55,9 @@
         <maven.war.plugin>2.2</maven.war.plugin>
         <org.osgi.service.http.port>8080</org.osgi.service.http.port>
         <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-        <org.osgi.version>1.0</org.osgi.version>
+        <org.osgi.R4.version>1.0</org.osgi.R4.version>
+        <!--<org.osgi.version>4.3.0</org.osgi.version>-->
+        <!--<org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j.version>1.6.1</slf4j.version>
         <spring.version>3.1.1.RELEASE</spring.version>
@@ -88,6 +90,24 @@
                 <groupId>org.springframework.osgi</groupId>
                 <artifactId>spring-osgi-core</artifactId>
                 <version>${spring.osgi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>org.springframework.aop</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>org.springframework.beans</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>org.springframework.core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>org.springframework.context</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.osgi</groupId>
@@ -120,10 +140,6 @@
                 <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
-
-
-
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>com.springsource.ch.qos.logback.core</artifactId>
@@ -269,17 +285,32 @@
                 <scope>provided</scope>
                 <optional>true</optional>
             </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.osgi</groupId>-->
+                <!--<artifactId>org.osgi.core</artifactId>-->
+                <!--<version>${org.osgi.version}</version>-->
+                <!--<scope>provided</scope>-->
+                <!--<optional>true</optional>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.osgi</groupId>-->
+                <!--<artifactId>org.osgi.compendium</artifactId>-->
+                <!--<version>${org.osgi.compendium.version}</version>-->
+                <!--<scope>provided</scope>-->
+                <!--<optional>true</optional>-->
+            <!--</dependency>-->
+
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>osgi_R4_core</artifactId>
-                <version>${org.osgi.version}</version>
+                <version>${org.osgi.R4.version}</version>
                 <scope>provided</scope>
                 <optional>true</optional>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>osgi_R4_compendium</artifactId>
-                <version>${org.osgi.version}</version>
+                <version>${org.osgi.R4.version}</version>
                 <scope>provided</scope>
                 <optional>true</optional>
             </dependency>

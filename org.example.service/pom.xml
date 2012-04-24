@@ -16,7 +16,6 @@
         <bundle.namespace>org.example.service</bundle.namespace>
     </properties>
 
-    <groupId>examples.spring</groupId>
     <artifactId>org.example.service</artifactId>
     <packaging>bundle</packaging>
 

@@ -25,6 +25,21 @@
           <optional>true</optional>
         </dependency>
         -->
+
+        <!--<dependency>-->
+            <!--<groupId>org.osgi</groupId>-->
+            <!--<artifactId>org.osgi.core</artifactId>-->
+            <!--<version>${org.osgi.version}</version>-->
+            <!--<scope>provided</scope>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.osgi</groupId>-->
+            <!--<artifactId>org.osgi.compendium</artifactId>-->
+            <!--<version>${org.osgi.compendium.version}</version>-->
+            <!--<scope>provided</scope>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi_R4_core</artifactId>

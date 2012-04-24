@@ -9,23 +9,22 @@ import java.util.List;
 /**
  * Internal implementation of our example OSGi service
  */
-public final class ExampleServiceImpl
-        implements ExampleService {
+public final class ExampleServiceImpl implements ExampleService {
     // implementation methods go here...
 
     public String scramble(String text) {
-        List charList = new ArrayList();
+        List<Character> charList = new ArrayList<Character>();
 
         char[] textChars = text.toCharArray();
-        for (int i = 0; i < textChars.length; i++) {
-            charList.add(new Character(textChars[i]));
+        for (char textChar : textChars) {
+            charList.add(textChar);
         }
 
         Collections.shuffle(charList);
 
         char[] mixedChars = new char[text.length()];
         for (int i = 0; i < mixedChars.length; i++) {
-            mixedChars[i] = ((Character) charList.get(i)).charValue();
+            mixedChars[i] = charList.get(i);
         }
 
         return new String(mixedChars);
