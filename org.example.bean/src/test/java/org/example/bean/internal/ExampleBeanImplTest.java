@@ -2,9 +2,8 @@ package org.example.bean.internal;
 
 import org.example.bean.ExampleBean;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
 
 public class ExampleBeanImplTest {
 

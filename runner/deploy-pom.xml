@@ -26,7 +26,6 @@
     <maven.release.plugin>2.2.2</maven.release.plugin>
     <maven.surefire.plugin>2.12</maven.surefire.plugin>
     <maven.test.skip>false</maven.test.skip>
-    <org.osgi.version>4.3.0</org.osgi.version>
     <spring.osgi.version>1.2.1</spring.osgi.version>
     <maven.resources.plugin>2.5</maven.resources.plugin>
     <maven.test.failure.ignore>false</maven.test.failure.ignore>
@@ -43,7 +42,6 @@
     <aopalliance.version>1.0.0</aopalliance.version>
     <maven.deploy.plugin>2.7</maven.deploy.plugin>
     <maven.install.plugin>2.3.1</maven.install.plugin>
-    <org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
     <log4j.version>1.2.16</log4j.version>
     <detail>true</detail>
     <maven.compiler.plugin>2.3.2</maven.compiler.plugin>
@@ -260,20 +258,6 @@
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.core</artifactId>
-        <version>4.3.0</version>
-        <scope>provided</scope>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-        <version>4.2.0</version>
-        <scope>provided</scope>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.osgi</groupId>
         <artifactId>osgi_R4_core</artifactId>
         <version>1.0</version>
         <scope>provided</scope>
@@ -397,23 +381,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>examples.spring</groupId>
+      <groupId>com.chariotsolutions.osgidemo</groupId>
       <artifactId>org.example.service</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.chariotsolutions.osgidemo</groupId>
-      <artifactId>org.example.bean</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -432,6 +403,19 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>com.springsource.ch.qos.logback.core</artifactId>
       <version>0.9.28</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.chariotsolutions.osgidemo</groupId>
+      <artifactId>org.example.bean</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.1</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
