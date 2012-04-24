@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#--------------------------------
+# let's start with a new project
+#--------------------------------
+
+pax-create-project -g spring-parent -a com.chariotsolutions.osgidemo -v 1.0.0-SNAPSHOT
+
+cd spring
+
+#-----------------------------------------------------------------------------------
+# first import the Spring Dynamic-Modules Extender bundle - we use importTransitive
+# to also import any bundles it depends on and widenScope to do an exhaustive check
+# of all dependencies (normally only "provided" scope dependencies are checked)
+#-----------------------------------------------------------------------------------
+
+pax-add-repository -i com.springsource.repository.bundles.external -u http://repository.springsource.com/maven/bundles/external
+pax-add-repository -i com.springsource.repository.bundles.release -u http://repository.springsource.com/maven/bundles/release
+pax-add-repository -i com.springsource.repository.bundles.milestone -u http://repository.springsource.com/maven/bundles/milestone
+pax-add-repository -i com.springsource.repository.libraries.snapshot -u http://repository.springsource.com/maven/libraries/snapshot
+pax-add-repository -i OPS4j.Plugin.Repository -u https://oss.sonatype.org/content/repositories/ops4j/
+pax-add-repository -i OPS4j.Plugin.Releases.Repository -u https://oss.sonatype.org/content/repositories/ops4j-releases/
+pax-add-repository -i OPS4j.Plugin.Releases.OBR.Repository -u https://oss.sonatype.org/content/repositories/ops4j-releases-obr/
+pax-add-repository -i OPS4j.Plugin.Snapshot.Repository -u https://oss.sonatype.org/content/repositories/ops4j-snapshots/
+pax-add-repository -i OPS4j.Plugin.Staging.Repository -u https://oss.sonatype.org/content/repositories/ops4j-with-staging/
+pax-add-repository -i OSGi.Plugin.Release.Repository -u https://oss.sonatype.org/content/repositories/osgi-releases/
+
+pax-import-bundle -g org.springframework.osgi -a spring-osgi-extender -v 1.2.1 -- -DimportTransitive -DwidenScope
+pax-import-bundle -g org.junit -a com.springsource.org.junit -v 4.10.0
+
+
+#------------------------------------------------------------
+# create new OSGi service bundle with example code and tests
+#------------------------------------------------------------
+
+pax-create-bundle -p org.example.service -- -Djunit
+
+#--------------------------------------------------------------------
+# create new Spring Dynamic Modules bean with example code and tests
+#--------------------------------------------------------------------
+
+pax-create-bundle -p org.example.bean -- -Dspring -Djunit
+
+#----------------------------
+# finally, build and deploy!
+#----------------------------
+mvn clean pax:clean
+mvn clean install pax:provision "-Dframework=equinox"
